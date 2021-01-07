@@ -19,6 +19,9 @@ int main()
 	int* const ark_ptr{& health};
 	*ark_ptr = 200; //ok
 	//ark_ptr = &score; //Error
+	
+	//constant pointer to const
 
+	const int * const ptr1 =&health; //// the value as well as the pointing to cannot be changed 
 
 }
