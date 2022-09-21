@@ -4,8 +4,11 @@ using namespace std;
 // #define PART2
 // #define PART3
 // #define PART4
-#define PART5
-
+// #define PART5
+// #define PART6
+// #define PART7
+// #define PART8
+// #define PART9
 
 bool safe_team1(int player_health[],int size){
     int total_health = 0;
@@ -90,7 +93,55 @@ resp2=safe_team2(player_health,4);
 cout<<resp<<"\t"<<resp2<<endl;
 #endif
 
+#ifdef PART6
+char c[] {"Hello"};  //pointer to constant
+const char *ptc{c};
+//*(ptc+1) ='E';// this will lead to error
+cout<< *(ptc+1);
+char * const cp{c}; //constant pointer
+//cp++; //this will lead to error
+#endif
 
+
+#ifdef PART7
+int *pi =static_cast<int *>(malloc(sizeof(int))); //static_cast is used for the pointer type conversion with compile time check for runtime check use dynamic_cast
+*pi=100;
+cout<<*pi<<endl;
+free(pi);
+cout<<*pi<<endl;// the memory is freed 
+//static_cast  -> convert with compile time check 
+
+#endif
+
+#ifdef PART8
+//new-> will call the default constructor  and delete -> calls the destructor
+int *p =new int ;//built in types do  not have constructors
+*p =20;
+cout<<*p<<endl;
+delete p;
+cout<<*p<<endl;
+
+#endif
+#ifdef PART9
+
+int* ptr1;
+try {
+ptr1 = new int[MACRO];
+}
+catch(const std::bad_alloc &e){
+cout<<"cannot allocate memory"<<endl;
+return;
+}
+#endif
+
+
+#ifdef PART10
+//memory lifetime
+int *p1 = new int {15};
+int * p2 = funct1(p1);
+cout<< *p1;
+cout<< *p2;
+#endif
 
 
 }
