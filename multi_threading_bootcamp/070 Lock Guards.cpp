@@ -11,6 +11,7 @@ void work(int &count, mutex &mtx)
     for (int i = 0; i < 1E6; i++)
     {
         lock_guard<mutex> guard(mtx);
+        //unique_lock<mutex> guard()mtx;  //same as lock_guard but you can explicitely unlock.
         ++count;
     }
 }
